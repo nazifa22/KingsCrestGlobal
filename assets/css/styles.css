@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* overflow: hidden; */
+    background-color: #2B2989;
+}
+
+@keyframes rotate {
+    100% {
+        background-position: 100%;
+    }
+}
+
+.flex-container {
+    /* background-color: #2B2989; */
+    display: flex;
+    justify-items: center;
+    height: 100vh;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    padding: 0 150px;
+    gap: 20px;
+}
+
+.box-1 {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.box-2 {
+    flex-basis: 20%;
+    text-align: right;
+}
+
+.globe__image {
+    width: 500px;
+    height: 500px;
+    margin-left: -60px;
+    background: url(../images/stock-photo--d-rendering-abstract-globe-with-particles-and-plexus-structure-digital-technology-planet-522872920.jpg) 0 0 repeat;
+    animation: rotate 10s linear infinite;
+    transition: transform 2s linear;
+    transform-style: preserve-3d;
+    color: #000;
+    border-radius: 50%;
+    box-shadow: inset 20px 0 80px 6px rgba(0, 0, 0, 1), 0px 0px 30px #000;
+    background-position: -50px 5px;
+}
+
+.globe__image::before {
+    position: absolute;
+    content: '';
+    background: transparent;
+    width: 150px;
+    height: 5px;
+    border-radius: 100%;
+    box-shadow: 0 8px 5px rgba(0,0,0,0.5);
+    bottom: -20px;
+    left: 35%;
+}
+
+.box-1 p {
+    width: 255px;
+    font-size: 55px;
+    z-index: 1;
+    color: #fff;
+}
+
+.box-1 p span {
+    font-weight: bold;
+}
+
+.box-2 p {
+    font-size: 18px;
+    color: #fff;
+    line-height: 28px;
+}
+
+.box-2 button {
+    margin-top: 20px;
+    padding: 10px 30px;
+    background: transparent;
+    border: 1px solid #eee;
+    border-radius: 50px;
+    text-transform: uppercase;
+    color: #FFF;
+    font-size: 12px;
+}
+
+.globe {
+    position: relative;
+}
+
+.globe__avatar {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 100%;
+    position: absolute;
+}
+
+.avatar-one {
+    left: -6%;
+    top: 18%;
+}
+
+.avatar-two {
+    left: 5%;
+    top: 14%;
+}
+
+.avatar-three {
+    left: 25%;
+    top: 35%;
+}
+
+.avatar-four {
+    width: 55px;
+    height: 55px;
+    left: 45%;
+    top: 37%;
+}
+
+.avatar-five {
+    right: 0;
+    top: 30%;
+}
+
+@media only screen and (max-width: 1200px) {
+    .flex-container {
+        flex-flow: column nowrap;
+        padding: 150px 15px;
+    }
+
+    .box-2 {
+        flex-basis: 100%;
+        text-align: center;
+        margin-top: 50px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    body {
+        overflow-y: scroll !important;
+    }
+
+    .flex-container {
+        width: calc(100% - 30px);
+    }
+
+    .box-1 {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    .box-2 {
+        margin-top: 0px;
+    }
+
+    .box-1 p {
+        width: 70%;
+        text-align: center;
+        font-size: 40px;
+        margin-top: 60px;
+    }
+
+    .avatar-one {
+        left: -1%;
+        top: 35%;
+    }
+
+    .avatar-two {
+        left: 8%;
+        top: 26%;
+    }
+
+    .avatar-three {
+        left: 36%;
+        top: 36%;
+    }
+
+    .avatar-four {
+        left: 55%;
+        top: 40%;
+    }
+
+    .globe__image { 
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .globe__image {
+        width: 300px;
+        height: 300px;
+        margin: 0;
+    }
+
+    .globe__image::before {
+        left: 25%;
+    }
+
+    .box-1 p {
+        width: 100%;
+    }
+
+    .avatar-one {
+        left: -4%;
+        top: 40%;
+    }
+
+    .avatar-five {
+        right: -3%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .avatar-one {
+        left: -15px;
+    }
+
+    .avatar-five {
+        right: -8px;
+    }
+}
