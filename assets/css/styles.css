@@ -15,9 +15,9 @@ body {
     background-color: #2B2989;
 }
 
-@keyframes rotate {
-    100% {
-        background-position: 100%;
+@keyframes rotation {
+    to {
+      transform: translate(100px);
     }
 }
 
@@ -45,21 +45,29 @@ body {
     text-align: right;
 }
 
+#chartdiv {
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 100%;
+    background: #444;
+    box-shadow: 0 0px 25px 0 rgba(0,0,0,0.5);
+    cursor: grabbing;
+}
+
+#chartdiv svg {
+    animation: rotation 10s linear 0s infinite;
+}
+
 .globe__image {
     width: 500px;
     height: 500px;
     margin-left: -60px;
-    background: url(../images/stock-photo--d-rendering-abstract-globe-with-particles-and-plexus-structure-digital-technology-planet-522872920.jpg) 0 0 repeat;
-    animation: rotate 10s linear infinite;
-    transition: transform 2s linear;
     transform-style: preserve-3d;
-    color: #000;
-    border-radius: 50%;
-    box-shadow: inset 20px 0 80px 6px rgba(0, 0, 0, 1), 0px 0px 30px #000;
-    background-position: -50px 5px;
 }
 
-.globe__image::before {
+.globe__image::after {
     position: absolute;
     content: '';
     background: transparent;
@@ -69,6 +77,18 @@ body {
     box-shadow: 0 8px 5px rgba(0,0,0,0.5);
     bottom: -20px;
     left: 35%;
+}
+
+.globe::after {
+    position: absolute;
+    content: '';
+    background: transparent;
+    width: 200px;
+    height: 0px;
+    bottom: -30px;
+    left: 75px;
+    box-shadow: 0px 0 20px 3px rgba(0,0,0,0.5);
+    transform: skewX(35deg);
 }
 
 .box-1 p {
@@ -199,17 +219,21 @@ body {
     .globe__image { 
         margin: 0;
     }
+
+    .globe::after {
+        left: 27%;
+    }
 }
 
 @media only screen and (max-width: 600px) {
-    .globe__image {
+    #chartdiv {
         width: 300px;
         height: 300px;
         margin: 0;
     }
 
-    .globe__image::before {
-        left: 25%;
+    .globe::after {
+        left: 15%;
     }
 
     .box-1 p {
