@@ -1,7 +1,9 @@
 # KingsCrestGlobal
 Interview test 
 
-flexbox 
+Flexbox 
 Media Query
 CSS animation
-Images used from shutterstock
+AMCharts JS plugin
+Plugin customization
+Free SVG
